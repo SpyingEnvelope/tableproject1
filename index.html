@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Javascript Table</title>
+    </head>
+    <body>
+
+<h1>Mountains</h1>
+
+<div id="mountains"></div>
+
+</body>
+
+<script>
+  const MOUNTAINS = [
+    {name: "Kilimanjaro", height: 5895, place: "Tanzania"},
+    {name: "Everest", height: 8848, place: "Nepal"},
+    {name: "Mount Fuji", height: 3776, place: "Japan"},
+    {name: "Vaalserberg", height: 323, place: "Netherlands"},
+    {name: "Denali", height: 6168, place: "United States"},
+    {name: "Popocatepetl", height: 5465, place: "Mexico"},
+    {name: "Mont Blanc", height: 4808, place: "Italy/France"}
+  ];
+  
+  let table = document.createElement('table');
+  document.getElementById('mountains').appendChild(table);
+
+   window.addEventListener('load', myInit, true);
+   function myInit() {
+     tableHeaderCreator();
+     tableCellCreator();
+ };
+
+
+
+
+
+let tableCells = document.createElement('td');
+let tableSelector = document.querySelector('table');
+
+function tableHeaderCreator () {
+    let tableRow = document.createElement('tr');
+    let selector = document.querySelector('table');
+    selector.appendChild(tableRow);
+    let rowSelector = document.querySelector('tr');
+
+    let tableHeader = document.createElement('th');
+    tableHeader.textContent = "Name";
+    rowSelector.appendChild(tableHeader);
+
+    tableHeader = document.createElement('th');
+    tableHeader.textContent = "Height";
+    rowSelector.appendChild(tableHeader);
+
+    tableHeader = document.createElement('th');
+    tableHeader.textContent = "Location";
+    rowSelector.appendChild(tableHeader);
+
+}
+  
+  function tableCellCreator() {
+      
+ for (let i = 0; i < MOUNTAINS.length; i++) {
+    let tableRow = document.createElement('tr');
+    let selector = document.querySelector('table');
+    selector.appendChild(tableRow); 
+    let rowSelector = document.querySelectorAll('tr');
+    let tableHeader = document.createElement('td');
+    tableHeader.textContent = MOUNTAINS[i].name;
+      rowSelector[i + 1].appendChild(tableHeader);
+    tableHeader = document.createElement('td');
+    tableHeader.textContent = MOUNTAINS[i].height;
+      rowSelector[i + 1].appendChild(tableHeader);
+    tableHeader = document.createElement('td');
+    tableHeader.textContent = MOUNTAINS[i].place;
+      rowSelector[i + 1].appendChild(tableHeader);
+ }
+    
+  }
+</script>
+
+</html>
